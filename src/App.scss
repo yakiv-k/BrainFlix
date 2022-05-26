@@ -1,0 +1,9 @@
+@use "./styles/partials/_typography.scss";
+@use "./styles/partials/_mixins.scss";
+@use "./styles/partials/_variables.scss";
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Avenir Next";
+}
