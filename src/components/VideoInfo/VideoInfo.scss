@@ -4,12 +4,13 @@
 
 .video-info {
   max-width: 80rem;
-  padding: 1rem;
+  padding: 0 1rem;
   &__title {
     margin: 0 0;
     font-size: 24px;
     line-height: 32px;
     font-weight: 600;
+    padding-top: 1rem;
     padding-bottom: 1rem;
   }
   &__description {

@@ -4,11 +4,13 @@ import avatar from "../../assets/Images/Mohan-muruge.jpg";
 function Comments({ selectedVideo }) {
   return (
     <>
-      <section className="form">
-        <h3 className="form__comments-counter">3 comments</h3>
-        <div>
-          <img className="form__avatar" src={avatar}></img>
-          <form className="comments__form form">
+      <section className="submission">
+        <h3 className="submission__counter">3 comments</h3>
+        <div className="submission__subdivision">
+          <div className="submission__image-block">
+          <img className="submission__avatar" src={avatar}></img>
+          </div>
+          <form className="submission__form form">
             <label className="form__label">JOIN THE CONVERSATION</label>
             <input
               className="form__input"
