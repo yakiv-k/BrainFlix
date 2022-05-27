@@ -8,15 +8,15 @@ function Header() {
     <header>
       <nav className="nav"> 
         <img className="nav__logo" src={Logo} />
-        <form className="nav__form form">
+        <form className="nav__search search">
           <div className="nav__division">
-          <input className="form__input" placeholder="Search"></input>
+          <input className="search__input" placeholder="Search"></input>
           <img
-            className="form__avatar"
+            className="search__avatar"
             src={Avatar}
           />            
           </div>
-          <button className="form__button">UPLOAD</button>
+          <button className="search__button">UPLOAD</button>
         </form>
         <img className="nav__avatar" src={Avatar} />
       </nav>
