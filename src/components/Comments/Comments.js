@@ -1,7 +1,7 @@
 import "./Comments.scss";
 import avatar from "../../assets/Images/Mohan-muruge.jpg";
 
-function Comments() {
+function Comments({ selectedVideo }) {
   return (
     <>
       <section className="form">
@@ -19,22 +19,22 @@ function Comments() {
         </div>
       </section>
       <div className="comments">
-        <div className="comments__card">
-          <div classname="commments__image-block">
-            <img className="comments__image"></img>
-          </div>
-          <div className="comments__text-block">
-            <div className="comments__info">
-              <p className="comments__name">Micheal Lyons</p>
-              <p className="comments__date">08/09/2021</p>
+        {selectedVideo.comments.map((video) => {
+          return (
+            <div className="comments__card">
+              <div className="commments__image-block">
+                <img className="comments__image"></img>
+              </div>
+              <div className="comments__text-block">
+                <div className="comments__info">
+                  <p className="comments__name">{video.name}</p>
+                  <p className="comments__date">{video.timestamp}</p>
+                </div>
+                <p className="comments__content">{video.comment}</p>
+              </div>
             </div>
-            <p className="comments__content">
-              They BLEW the ROOF off at their last event, once everyone started
-              figuring out they were going. This is still simply the greatest
-              opening of an event I have EVER witnessed.
-            </p>
-          </div>
-        </div>
+          );
+        })}
       </div>
     </>
   );
