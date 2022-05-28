@@ -12,13 +12,11 @@ class Body extends React.Component {
     suggestedVideos: SuggestedVideoDetails,
   };
 
-  updateMainVideoHandler(videoId) {
-    const newSelectedVideo = this.suggestedVideos.find((video) => video.id === videoId);
+  updateMainVideoHandler = (videoId) => {
+    const newSelectedVideo = MainVideoDetails.find((video) => video.id === videoId);
 
     this.setState({
-      selectedVideo: MainVideoDetails.map((video) => {
-        video.id === newSelectedVideo.id;
-      }),
+      selectedVideo: newSelectedVideo
     });
   };
 
@@ -41,3 +39,7 @@ class Body extends React.Component {
 }
 
 export default Body;
+
+// MainVideoDetails.map((video) => {
+//   video.id === newSelectedVideo.id;
+// })
