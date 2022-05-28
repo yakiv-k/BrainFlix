@@ -4,14 +4,13 @@ import likesIcon from "../../assets/Icons/likes.svg";
 
 
 function VideoInfo({selectedVideo}) {
-  console.log(selectedVideo);
   return (
     <section className="video-info">
       <h1 className="video-info__title">{selectedVideo.title}</h1>
       <div className="video-info__stats stats">
         <div className="stats__block">
           <p className="stats__text stats__text--color">{selectedVideo.channel}</p>
-          <p className="stats__text">{selectedVideo.timestamp}</p>
+          <p className="stats__text">{(new Date(selectedVideo.timestamp)).toLocaleDateString()}</p>
         </div>
         <div className="stats__block">
           <p className="stats__text">

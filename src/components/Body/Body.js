@@ -1,32 +1,43 @@
 import MainVideoDetails from "../../Data/video-details.json";
-import SuggestedVideoDetails from "../../Data/videos.json"
+import SuggestedVideoDetails from "../../Data/videos.json";
 import Video from "../Video/Video";
 import VideoInfo from "../VideoInfo/VideoInfo";
 import Comments from "../Comments/Comments";
 import NextVideos from "../NextVideos/NextVideos";
 import React from "react";
 
-
 class Body extends React.Component {
-    state = {
+  state = {
     selectedVideo: MainVideoDetails[0],
-    suggestedVideos: SuggestedVideoDetails
-    }
+    suggestedVideos: SuggestedVideoDetails,
+  };
 
-    // this.setState({
-        
-    //   });
+  updateMainVideoHandler(videoId) {
+    const newSelectedVideo = this.suggestedVideos.find((video) => video.id === videoId);
 
-    render() {
-   return (
-    <>
-      <Video />
-      <VideoInfo selectedVideo={this.state.selectedVideo}/>
-      <Comments selectedVideo={this.state.selectedVideo}/>
-      <NextVideos suggestedVideos={this.state.suggestedVideos}/>
-    </>
-  );       
-    }
+    this.setState({
+      selectedVideo: MainVideoDetails.map((video) => {
+        video.id === newSelectedVideo.id;
+      }),
+    });
+  };
+
+  render() {
+    const nonSelectedVideos = SuggestedVideoDetails.filter((video) => {
+      return video.id !== this.state.selectedVideo.id;
+    });
+    return (
+      <>
+        <Video selectedVideo={this.state.selectedVideo} />
+        <VideoInfo selectedVideo={this.state.selectedVideo} />
+        <Comments selectedVideo={this.state.selectedVideo} />
+        <NextVideos 
+        nextVideos={nonSelectedVideos}
+        updateMainVideoHandler={this.updateMainVideoHandler}
+         />
+      </>
+    );
+  }
 }
 
 export default Body;

@@ -23,14 +23,15 @@ function Comments({ selectedVideo }) {
       <div className="comments">
         {selectedVideo.comments.map((video) => {
           return (
-            <div className="comments__card">
+            <div className="comments__card" key={selectedVideo.id}>
+              {console.log(video)}
               <div className="commments__image-block">
-                <img className="comments__image"></img>
+                <p className="comments__image"></p>
               </div>
               <div className="comments__text-block">
                 <div className="comments__info">
                   <p className="comments__name">{video.name}</p>
-                  <p className="comments__date">{video.timestamp}</p>
+                  <p className="comments__date">{(new Date(video.timestamp)).toLocaleDateString()}</p>
                 </div>
                 <p className="comments__content">{video.comment}</p>
               </div>

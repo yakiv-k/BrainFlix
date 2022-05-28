@@ -1,8 +1,8 @@
 import "./Video.scss";
 
-function Video () {
+function Video ({selectedVideo}) {
     return (
-       <video controls className="video">
+       <video controls poster={selectedVideo.image} className="video">
            <source></source>
        </video> 
     );
