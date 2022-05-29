@@ -12,7 +12,7 @@ function VideoInfo({selectedVideo}) {
           <p className="stats__text stats__text--color">{selectedVideo.channel}</p>
           <p className="stats__text">{(new Date(selectedVideo.timestamp)).toLocaleDateString()}</p>
         </div>
-        <div className="stats__block">
+        <div className="stats__block stats__block--width">
           <p className="stats__text">
             <img className="stats__icon" src={viewsIcon}></img>
             {selectedVideo.views}</p>

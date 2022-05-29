@@ -1,7 +1,10 @@
 @use "../../styles/partials/variables" as *;
-
+@use "../../styles/partials/mixins" as *;
 .submission {
   padding: 0 1rem;
+  @include tablet {
+    padding: 0 2.25rem;
+  }
   &__avatar {
     max-width: 40px;
     height: 40px;
@@ -13,6 +16,10 @@
     font-size: 13px;
     font-weight: 600;
     padding-bottom: 1rem;
+    @include tablet {
+      padding-bottom: 2.25rem;
+      font-weight: 700;
+    }
   }
   &__subdivision {
     display: flex;
@@ -29,9 +36,12 @@
 }
 
 .form {
-  width: 80%;
+  width: 82%;
   display: flex;
   flex-direction: column;
+  @include tablet {
+    flex-direction: row;
+  }
   &__label {
     padding-bottom: 0.25rem;
   }
@@ -52,7 +62,7 @@
     font-weight: 600;
   }
   &__button {
-    background-image: url("../../assets/Icons/upload.svg");
+    background-image: url("../../assets/Icons/add_comment.svg");
     background-repeat: no-repeat;
     background-position: 5% 50%;
     border: none;
@@ -63,6 +73,12 @@
     width: 100%;
     border-radius: 4px;
     margin-top: 1rem;
+  }
+  &__tablet-division {
+    @include tablet {
+      display: flex;
+      flex-direction: column;
+    }
   }
 }
 
@@ -89,7 +105,7 @@
     padding-top: 1.25rem;
   }
   &__text-block {
-    width: 80%;
+    width: 82%;
   }
   &__info {
     display: flex;
@@ -101,6 +117,7 @@
     margin: 0 0;
     font-size: 13px;
     font-weight: 600;
+    line-height: 18px;
   }
   &__date {
     margin: 0 0;
@@ -109,7 +126,7 @@
     line-height: 18px;
   }
   &__content {
-    font-size: 12px;
+    font-size: 13px;
     line-height: 18px;
     margin: 0 0;
   }

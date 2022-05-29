@@ -20,6 +20,9 @@
     margin: 0 0;
     font-weight: 600;
     padding-bottom: 0.5rem;
+    overflow:hidden; 
+
+    text-overflow: ellipsis;
   }
   &__author {
     font-size: 12px;
@@ -35,5 +38,6 @@
     color: $text-secondary;
     font-weight: 600;
     padding: 1rem 0;
+    line-height: 18px;
   }
 }

@@ -20,6 +20,11 @@ class Body extends React.Component {
     });
   };
 
+  // FUNCTION: counts the ammount of comments associated with a specific video
+  countComments = (arr) => {
+    return arr.filter((obj) => obj.comment === obj.comment).length;
+};
+
   render() {
     const nonSelectedVideos = SuggestedVideoDetails.filter((video) => {
       return video.id !== this.state.selectedVideo.id;
@@ -28,7 +33,9 @@ class Body extends React.Component {
       <>
         <Video selectedVideo={this.state.selectedVideo} />
         <VideoInfo selectedVideo={this.state.selectedVideo} />
-        <Comments selectedVideo={this.state.selectedVideo} />
+        <Comments 
+        selectedVideo={this.state.selectedVideo}
+        countComments={this.countComments} />
         <NextVideos 
         nextVideos={nonSelectedVideos}
         updateMainVideoHandler={this.updateMainVideoHandler}
