@@ -72,13 +72,15 @@
   &__block {
     width: 55%;
     display: flex;
-    justify-content: space-between;
+    // justify-content: space-between;
+    flex-direction: column;
     &--width {
       @include tablet {
         width: 27%;
       }
     }
     @include tablet {
+      justify-content: space-between;
       width: 27%;
     }
   }

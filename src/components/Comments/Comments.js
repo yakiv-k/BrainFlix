@@ -28,7 +28,6 @@ function Comments({ selectedVideo, countComments }) {
         {selectedVideo.comments.map((video) => {
           return (
             <div className="comments__card">
-              {console.log(video)}
               <div className="commments__image-block">
                 <p className="comments__image"></p>
               </div>
