@@ -25,7 +25,7 @@ class StateSource extends React.Component {
 
   // FUNCTION: counts the ammount of comments associated with a specific video
   countComments = (arr) => {
-    return arr.filter((obj) => obj.comment === obj.comment).length;
+    return arr.filter((obj) => obj.comment).length;
   };
 
   render() {
@@ -57,6 +57,3 @@ class StateSource extends React.Component {
 
 export default StateSource;
 
-// MainVideoDetails.map((video) => {
-//   video.id === newSelectedVideo.id;
-// })
