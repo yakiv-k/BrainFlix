@@ -2,8 +2,8 @@
 @use "../../styles/partials/variables" as *;
 
 .video {
+  background-color: $video-primary;
   @include tablet {
-    background-color: $video-primary;
     padding: 0 2.25rem;
   }
   @include desktop {
@@ -13,5 +13,6 @@
     width: 100%;
     height: 100%;
     aspect-ratio: 16 / 9;
+    max-width: 80rem;
   }
 }

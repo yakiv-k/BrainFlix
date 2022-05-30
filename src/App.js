@@ -1,12 +1,12 @@
 import './App.scss';
 import Header from './components/Header/Header';
-import Body from './components/Body/Body';
+import StateSource from './components/StateSource/StateSource';
 
 function App() {
   return (
     <>
     <Header />
-    <Body />
+    <StateSource />
     </>
   );
 

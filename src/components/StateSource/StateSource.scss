@@ -1,0 +1,20 @@
+@use "../../styles/partials/mixins" as *;
+
+.state {
+    max-width: 80rem;
+    @include desktop {
+        padding: 0 7.125rem;
+        display: flex;
+        flex-direction: row;
+    }
+    &__comments-division {
+        @include desktop {
+            border-right: 1px solid #E1E1E1;
+        }
+    }
+    &__next-division {
+        @include desktop {
+            padding-left: 1rem;
+        }
+    }
+}

@@ -7,13 +7,22 @@
   @include tablet {
     padding: 0 2.25rem;
   }
+  @include desktop {
+    padding: 0;
+  }
   &__image {
     width: 6rem;
     height: 4rem;
     border-radius: 4px;
     margin-right: 1rem;
-    @include tablet {
-      // margin-right: 1rem;
+    @include desktop {
+      height: 3.75rem;
+      object-fit: cover;
+    }
+  }
+  &__image-block {
+    @include desktop {
+      
     }
   }
   &__card {
@@ -21,9 +30,6 @@
     flex-direction: row;
     justify-content: flex-start;
     padding-bottom: 1rem;
-    @include tablet {
-      // justify-content: flex-start;
-    }
   }
   &__title {
     font-size: 13px;
@@ -44,6 +50,9 @@
     width: 60%;
     @include tablet {
       width: 24%;
+    }
+    @include desktop {
+      width: 60%;
     }
   }
   &__heading {

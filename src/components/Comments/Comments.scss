@@ -6,6 +6,9 @@
   @include tablet {
     padding: 0 2.25rem;
   }
+  @include desktop {
+    padding: 0;
+  }
   &__avatar {
     max-width: 40px;
     height: 40px;
@@ -32,6 +35,9 @@
     @include tablet {
       align-items: center;
     }
+    @include desktop {
+      border-bottom: none;
+    }
   }
   &__image-block {
     padding-top: 1.25rem;
@@ -48,9 +54,11 @@
   flex-direction: column;
   @include tablet {
     flex-direction: row;
-    flex-direction: row;
     justify-content: space-between;
     width: 100%;
+  }
+  @include desktop {
+    padding-right: 1rem;
   }
   &__label {
     padding-bottom: 0.25rem;
@@ -87,6 +95,10 @@
     width: 100%;
     border-radius: 4px;
     margin-top: 1rem;
+    &:hover {
+      background-color: $button-secondary;
+      transition: 0.5s;
+    }
     @include tablet {
       width: 12.375rem;
       margin-left: 1rem;
@@ -108,6 +120,9 @@
   @include tablet {
     padding: 0 2.25rem;
   }
+  @include desktop {
+    padding: 0;
+  }
   &__image {
     background-color: $form-field-outline;
     border-radius: 50%;
@@ -122,8 +137,9 @@
     padding-top: 1rem;
     padding-bottom: 1rem;
     border-bottom: 1px solid #e1e1e1;
-    @include tablet {
-      // justify-content: flex-start;
+    @include desktop {
+      border-top: 1px solid #e1e1e1;
+      border-bottom: none;
     }
   }
   &__image-block {
@@ -138,6 +154,9 @@
     width: 100%;
     @include tablet {
       width: 92%;
+    }
+    @include desktop {
+      padding-right: 1rem;
     }
   }
   &__info {

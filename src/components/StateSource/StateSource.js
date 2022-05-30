@@ -5,9 +5,9 @@ import VideoInfo from "../VideoInfo/VideoInfo";
 import Comments from "../Comments/Comments";
 import NextVideos from "../NextVideos/NextVideos";
 import React from "react";
-import "./Body.scss";
+import "./StateSource.scss";
 
-class Body extends React.Component {
+class StateSource extends React.Component {
   state = {
     selectedVideo: MainVideoDetails[0],
     suggestedVideos: SuggestedVideoDetails,
@@ -55,7 +55,7 @@ class Body extends React.Component {
   }
 }
 
-export default Body;
+export default StateSource;
 
 // MainVideoDetails.map((video) => {
 //   video.id === newSelectedVideo.id;

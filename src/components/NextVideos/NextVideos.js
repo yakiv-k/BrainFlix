@@ -14,7 +14,9 @@ function NextVideos({ nextVideos, updateMainVideoHandler }) {
                 updateMainVideoHandler(video.id)
               }}
             >
-              <img className="next-videos__image" src={video.image}></img>
+              <div className="next-videos__image-block">
+              <img className="next-videos__image" src={video.image} alt="suggested video image"></img>
+              </div>
               <div className="next-videos__details">
                 <p className="next-videos__title">{video.title}</p>
                 <p className="next-videos__author">{video.channel}</p>

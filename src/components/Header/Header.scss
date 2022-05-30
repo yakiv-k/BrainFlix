@@ -67,7 +67,7 @@
     padding: 0.5rem 2rem;
     background-image: url("../../assets/Icons/search.svg");
     background-repeat: no-repeat;
-    background-position: 5% 50%;
+    background-position: 0.75rem 0.675rem;
     border-radius: 4px;
     border: 1px solid $form-field-outline;
     background-color: $form-field-background;
@@ -98,6 +98,10 @@
     width: 100%;
     border-radius: 4px;
     margin-top: 1rem;
+    &:hover {
+      background-color: $button-secondary;
+      transition: 0.5s;
+    }
     @include tablet {
       margin: 0 0;
       width: 27%;

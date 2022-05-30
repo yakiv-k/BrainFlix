@@ -8,6 +8,9 @@
   @include tablet {
     padding: 0 2.25rem;
   }
+  @include desktop {
+    padding: 0;
+  }
   &__title {
     margin: 0 0;
     font-size: 24px;
@@ -35,13 +38,15 @@
       line-height: 22px;
       padding-bottom: 2.25rem;
     }
+    @include desktop {
+      padding-right: 1rem;
+    }
   }
 }
 
 .stats {
   display: flex;
   flex-direction: row;
-  // justify-content: flex-start;
   margin-bottom: 1rem;
   border-bottom: 1px solid #e1e1e1;
   width: 100%;
@@ -61,12 +66,11 @@
       color: $text-primary;
       font-weight: 700;
     }
-
     @include tablet {
       font-size: 14px;
       line-height: 22px;
       padding-bottom: 0.5rem;
-      width: 5rem;
+      width: auto;
     }
   }
   &__block {
@@ -77,6 +81,9 @@
     &--width {
       @include tablet {
         width: 27%;
+      }
+      @include desktop {
+        padding-right: 1rem;
       }
     }
     @include tablet {

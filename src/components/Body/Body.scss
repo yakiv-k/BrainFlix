@@ -1,8 +1,0 @@
-@use "../../styles/partials/mixins" as *;
-
-.state {
-    @include desktop {
-        display: flex;
-        flex-direction: row;
-    }
-}
