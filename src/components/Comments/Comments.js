@@ -10,7 +10,7 @@ function Comments({ selectedVideo, countComments }) {
         </h3>
         <div className="submission__subdivision">
           <div className="submission__image-block">
-            <img className="submission__avatar" src={avatar}></img>
+            <img className="submission__avatar" alt="users chosen avatar" src={avatar}></img>
           </div>
           <form className="submission__form form">
             <div className="form__tablet-division">
@@ -28,8 +28,8 @@ function Comments({ selectedVideo, countComments }) {
         {selectedVideo.comments.map((video) => {
           return (
             <div className="comments__card">
-              <div className="commments__image-block">
-                <p className="comments__image"></p>
+              <div className="comments__image-block">
+                <p className="comments__image" atl="default grey avatar"></p>
               </div>
               <div className="comments__text-block">
                 <div className="comments__info">

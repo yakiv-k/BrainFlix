@@ -14,10 +14,10 @@ function VideoInfo({selectedVideo}) {
         </div>
         <div className="stats__block stats__block--width">
           <p className="stats__text">
-            <img className="stats__icon" src={viewsIcon}></img>
+            <img className="stats__icon" alt="likes icon" src={viewsIcon}></img>
             {selectedVideo.views}</p>
           <p className="stats__text">
-          <img className="stats__icon" src={likesIcon}></img>
+          <img className="stats__icon" alt="stats icon" src={likesIcon}></img>
           {selectedVideo.likes}</p>
         </div>
       </div>

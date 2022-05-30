@@ -1,18 +1,29 @@
 @use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
 
 .next-videos {
   max-width: 80rem;
   padding: 0 1rem;
+  @include tablet {
+    padding: 0 2.25rem;
+  }
   &__image {
     width: 6rem;
     height: 4rem;
     border-radius: 4px;
+    margin-right: 1rem;
+    @include tablet {
+      // margin-right: 1rem;
+    }
   }
   &__card {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-start;
     padding-bottom: 1rem;
+    @include tablet {
+      // justify-content: flex-start;
+    }
   }
   &__title {
     font-size: 13px;
@@ -20,7 +31,7 @@
     margin: 0 0;
     font-weight: 600;
     padding-bottom: 0.5rem;
-    overflow:hidden; 
+    overflow: hidden;
 
     text-overflow: ellipsis;
   }
@@ -30,7 +41,10 @@
     margin: 0 0;
   }
   &__details {
- width: 60%;
+    width: 60%;
+    @include tablet {
+      width: 24%;
+    }
   }
   &__heading {
     margin: 0 0;
@@ -39,5 +53,8 @@
     font-weight: 600;
     padding: 1rem 0;
     line-height: 18px;
+    @include tablet {
+      padding: 1.5rem 0;
+    }
   }
 }
