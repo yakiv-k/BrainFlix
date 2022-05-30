@@ -13,6 +13,7 @@ class StateSource extends React.Component {
     suggestedVideos: SuggestedVideoDetails,
   };
 
+  // FUNCTION: isolates our newly selected video(onClick) and passes that ID to the global selectedVideo property
   updateMainVideoHandler = (videoId) => {
     const newSelectedVideo = MainVideoDetails.find(
       (video) => video.id === videoId
@@ -25,10 +26,10 @@ class StateSource extends React.Component {
 
   // FUNCTION: counts the ammount of comments associated with a specific video
   countComments = (arr) => {
-    return arr.filter((obj) => obj.comment === obj.comment).length;
+    return arr.filter((obj) => obj.comment).length;
   };
-
   render() {
+  // VARIABLE: isolates set of non-selected videos to reference where needed. 
     const nonSelectedVideos = SuggestedVideoDetails.filter((video) => {
       return video.id !== this.state.selectedVideo.id;
     });
