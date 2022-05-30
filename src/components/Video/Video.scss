@@ -1,5 +1,17 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
 .video {
+  @include tablet {
+    background-color: $video-primary;
+    padding: 0 2.25rem;
+  }
+  @include desktop {
+    padding: 0px 11.25rem;
+  }
+  &__player {
     width: 100%;
     height: 100%;
     aspect-ratio: 16 / 9;
+  }
 }

@@ -5,6 +5,7 @@ import VideoInfo from "../VideoInfo/VideoInfo";
 import Comments from "../Comments/Comments";
 import NextVideos from "../NextVideos/NextVideos";
 import React from "react";
+import "./Body.scss";
 
 class Body extends React.Component {
   state = {
@@ -13,17 +14,19 @@ class Body extends React.Component {
   };
 
   updateMainVideoHandler = (videoId) => {
-    const newSelectedVideo = MainVideoDetails.find((video) => video.id === videoId);
+    const newSelectedVideo = MainVideoDetails.find(
+      (video) => video.id === videoId
+    );
 
     this.setState({
-      selectedVideo: newSelectedVideo
+      selectedVideo: newSelectedVideo,
     });
   };
 
   // FUNCTION: counts the ammount of comments associated with a specific video
   countComments = (arr) => {
     return arr.filter((obj) => obj.comment === obj.comment).length;
-};
+  };
 
   render() {
     const nonSelectedVideos = SuggestedVideoDetails.filter((video) => {
@@ -31,15 +34,22 @@ class Body extends React.Component {
     });
     return (
       <>
-        <Video selectedVideo={this.state.selectedVideo} />
-        <VideoInfo selectedVideo={this.state.selectedVideo} />
-        <Comments 
-        selectedVideo={this.state.selectedVideo}
-        countComments={this.countComments} />
-        <NextVideos 
-        nextVideos={nonSelectedVideos}
-        updateMainVideoHandler={this.updateMainVideoHandler}
-         />
+          <Video selectedVideo={this.state.selectedVideo} />
+        <div className="state">
+          <div className="state__comments-division">
+            <VideoInfo selectedVideo={this.state.selectedVideo} />
+            <Comments
+              selectedVideo={this.state.selectedVideo}
+              countComments={this.countComments}
+            />
+          </div>
+          <div className="state__next-division">
+            <NextVideos
+              nextVideos={nonSelectedVideos}
+              updateMainVideoHandler={this.updateMainVideoHandler}
+            />
+          </div>
+        </div>
       </>
     );
   }
