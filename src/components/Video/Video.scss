@@ -3,6 +3,9 @@
 
 .video {
   background-color: $video-primary;
+  &__wrapper {
+    text-align: center;
+  }
   @include tablet {
     padding: 0 2.25rem;
   }
@@ -14,5 +17,6 @@
     height: 100%;
     aspect-ratio: 16 / 9;
     max-width: 80rem;
+    object-fit: cover;
   }
 }

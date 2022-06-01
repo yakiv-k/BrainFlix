@@ -2,6 +2,7 @@
 
 .state {
     max-width: 80rem;
+    margin: 0 auto;
     @include desktop {
         padding: 0 7.125rem;
         display: flex;
