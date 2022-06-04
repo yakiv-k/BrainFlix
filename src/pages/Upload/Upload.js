@@ -9,13 +9,14 @@ function Upload() {
     </div>
     <div className="upload__thumbnail-container">
         <p className="upload__thumbnail-title">VIDEO THUMBNAIL</p>
-        <img className="upload__thumbnail" src={image}></img>
+        <img className="upload__thumbnail" src={image} alt="current video thumbnail"></img>
     </div>
     <form className="upload__form form">
         <label className="form__label">TITLE YOUR VIDEO</label>
         <input className="form__input" placeholder="Add a description to your video"></input>
         <button className="form__button">PUBLISH</button>
-        <a className="form__button--cancel">CANCEL</a>
+        {/* VERIFY THE HREF PATH */}
+        <a className="form__button--cancel" href="../Homepage/Homepage.js">CANCEL</a>
     </form>
 </section>    
     )
