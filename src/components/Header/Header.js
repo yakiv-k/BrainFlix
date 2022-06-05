@@ -19,7 +19,9 @@ function Header() {
             src={Avatar}
           />            
           </div>
+          <Link to="/Upload" className="search__link">
           <button className="search__button">UPLOAD</button>
+          </Link>
         </form>
         <img className="nav__avatar" src={Avatar} />
       </nav>

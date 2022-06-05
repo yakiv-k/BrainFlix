@@ -118,15 +118,3 @@ class Homepage extends React.Component {
 }
 
 export default Homepage;
-
-//FUNCTION: allows you to pass a video id(through onClick) and use that id to update the state of the selectedVideo
-// updateMainVideoHandler = (videoId) => {
-//   //   NEEDS NEW PATH
-//   const newSelectedVideo = MainVideoDetails.find(
-//     (video) => video.id === videoId
-//   );
-
-//   this.setState({
-//     selectedVideo: newSelectedVideo,
-//   });
-// };
