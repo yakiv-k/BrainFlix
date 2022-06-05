@@ -9,8 +9,8 @@ class App extends React.Component {
   render() {
     return (
       <>
-        <Header />
         <BrowserRouter>
+        <Header />
           <Switch>
             <Route path="/" exact component={Homepage}></Route>
             <Route path="/Videos/:id" component={Homepage}></Route>

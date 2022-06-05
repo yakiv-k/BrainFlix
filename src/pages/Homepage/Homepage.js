@@ -48,10 +48,28 @@ class Homepage extends React.Component {
       });
   }
 
-  // componentDidUpdate(prevProps) {
-  //   const selectedVideo = this.props.match.params.id;
-  //   const prevVideo = prevPros.match.params.id;
-  // }
+  componentDidUpdate(prevProps) {
+    const selectedVideoId = this.props.match.params.id;
+    const prevVideo = prevProps.match.params.id;
+
+    if (typeof selectedVideoId === 'undefined') {
+      const defaultVideo = this.state.suggestedVideos[0].id;
+      
+      this.fetchVideoDataById(defaultVideo)
+      .then((response) => {
+        this.setState({
+          selectedVideo: response.data
+        })
+      });
+    } else if (selectedVideoId !== prevVideo) {
+      this.fetchVideoDataById(selectedVideoId)
+      .then((response) => {
+        this.setState({
+          selectedVideo: response.data,
+        })
+      });
+    }
+  }
 
   // FUNCTION: Axios call
   fetchVideoDataById = (Id) => {
@@ -61,20 +79,24 @@ class Homepage extends React.Component {
   };
 
   // FUNCTION: counts the ammount of comments associated with a specific video
-  // countComments = (arr) => {
-  //   return arr.filter((obj) => obj.comment).length;
-  // };
+  countComments = (arr) => {
+    return arr.filter((obj) => obj.comment).length;
+  };
 
   render() {
-    // VARIABLE: holds an array of all videos except for the currently selected video
-
-    // NEEDS NEW PATH
-    // const nonSelectedVideos = this.state.videos.filter((video) => {
-    //   return video.id !== this.state.selectedVideo.id;
-    // });
     if (!this.state.selectedVideo) {
       return <p>Loading....</p>;
     }
+    if (!this.state.suggestedVideos) {
+      return <p>Loading....</p>;
+    }
+    // VARIABLE: holds an array of all videos except for the currently selected video
+
+    // NEEDS NEW PATH
+    const nonSelectedVideos = this.state.suggestedVideos.filter((video) => {
+      console.log(video);
+      return video.id !== this.state.selectedVideo.id;
+    });
     return (
       <>
         <Video selectedVideo={this.state.selectedVideo} />
@@ -83,15 +105,11 @@ class Homepage extends React.Component {
             <VideoInfo selectedVideo={this.state.selectedVideo} />
             <Comments
               selectedVideo={this.state.selectedVideo}
-            />
-            <Comments
-              selectedVideo={this.state.selectedVideo}
               countComments={this.countComments}
             />
           </div>
           <div className="state__next-division">
-            <NextVideos nextVideos={this.state.suggestedVideos} />
-            {/* <NextVideos nextVideos={nonSelectedVideos} /> */}
+            <NextVideos nextVideos={nonSelectedVideos} />
           </div>
         </div>
       </>

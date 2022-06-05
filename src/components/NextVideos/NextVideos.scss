@@ -30,6 +30,8 @@
     flex-direction: row;
     justify-content: flex-start;
     padding-bottom: 1rem;
+    text-decoration: none;
+    color: $text-primary;
   }
   &__title {
     font-size: 13px;
