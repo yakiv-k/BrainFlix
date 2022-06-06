@@ -14,13 +14,13 @@ function Comments({ selectedVideo, countComments }) {
           </div>
           <form className="submission__form form">
             <div className="form__tablet-division">
-              <label className="form__label">JOIN THE CONVERSATION</label>
+              <label className="form__label">Join the conversation</label>
               <input
                 className="form__input"
                 placeholder="Add a new comment"
               ></input>
             </div>
-            <button className="form__button">COMMENT</button>
+            <button className="form__button">Comment</button>
           </form>
         </div>
       </section>

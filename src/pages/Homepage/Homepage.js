@@ -1,5 +1,3 @@
-// import MainVideoDetails from "../../Data/video-details.json";
-// import SuggestedVideoDetails from "../../Data/videos.json";
 import Video from "../../components/Video/Video";
 import VideoInfo from "../../components/VideoInfo/VideoInfo";
 import Comments from "../../components/Comments/Comments";

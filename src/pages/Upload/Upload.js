@@ -11,7 +11,7 @@ function Upload() {
       <form className="upload__form form">
         <div className="form__desktop-container">
         <div className="upload__thumbnail-container">
-          <p className="upload__thumbnail-title">VIDEO THUMBNAIL</p>
+          <p className="upload__thumbnail-title">Video thumbnail</p>
           <img
             className="upload__thumbnail"
             src={image}
@@ -19,21 +19,24 @@ function Upload() {
           ></img>
         </div>
         <div className="form__desktop-container--text">
-          <label className="form__label">TITLE YOUR VIDEO</label>
+          <label className="form__label" for="title">Title your video</label>
           <input
             className="form__input"
             placeholder="Add a title to your video"
+            type="text"
+            name="title"
           ></input>
-          <label className="form__label">ADD A VIDEO DESCRIPTION</label>
+          <label className="form__label" for="description">Add a video description</label>
           <input
             className="form__input--padding"
             placeholder="Add a description to your video"
+            type="text"
+            name="description"
           ></input>
         </div>
         </div>
         <div className="form__button-division">
-          <button className="form__button">PUBLISH</button>
-          {/* VERIFY THE HREF PATH */}
+          <button className="form__button">Publish</button>
           <Link
             to="/"
             className="form__button--cancel"
