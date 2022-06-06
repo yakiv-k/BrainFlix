@@ -21,3 +21,8 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+App.test.js
+reportWebVitals.js
+
+*css.map
