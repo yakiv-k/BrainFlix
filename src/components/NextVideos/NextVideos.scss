@@ -13,7 +13,7 @@
   &__image {
     width: 6rem;
     height: 4rem;
-    border-radius: 4px;
+    border-radius: 0.25rem;
     margin-right: 1rem;
     @include desktop {
       height: 3.75rem;
@@ -34,7 +34,7 @@
     color: $text-primary;
   }
   &__title {
-    font-size: 13px;
+    font-size: 0.8125rem;
     width: 100%;
     margin: 0 0;
     font-weight: 600;
@@ -44,7 +44,7 @@
     text-overflow: ellipsis;
   }
   &__author {
-    font-size: 12px;
+    font-size: 0.75rem;
     width: 100%;
     margin: 0 0;
   }
@@ -59,11 +59,11 @@
   }
   &__heading {
     margin: 0 0;
-    font-size: 12px;
+    font-size: 0.75rem;
     color: $text-secondary;
     font-weight: 600;
     padding: 1rem 0;
-    line-height: 18px;
+    line-height: 1.125rem;
     @include tablet {
       padding: 1.5rem 0;
     }

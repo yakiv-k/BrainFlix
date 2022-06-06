@@ -9,3 +9,7 @@
         @content
     };
 };
+
+@mixin margin-reset {
+    margin: 0 0;
+}

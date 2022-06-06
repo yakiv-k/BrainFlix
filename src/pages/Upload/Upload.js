@@ -13,6 +13,8 @@ function Upload() {
     </div>
     <form className="upload__form form">
         <label className="form__label">TITLE YOUR VIDEO</label>
+        <input className="form__input" placeholder="Add a title to your video"></input>
+        <label className="form__label">ADD A VIDEO DESCRIPTION</label>
         <input className="form__input" placeholder="Add a description to your video"></input>
         <button className="form__button">PUBLISH</button>
         {/* VERIFY THE HREF PATH */}

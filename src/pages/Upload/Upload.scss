@@ -11,7 +11,7 @@
     padding-bottom: 1rem;
   }
   &__title {
-    margin: 0 0;
+    @include margin-reset;
     font-size: 1.5rem;
     font-weight: 600;
     padding-top: 1.5rem;
@@ -25,7 +25,7 @@
     font-size: 13px;
     color: #afafaf;
     font-weight: 600;
-    margin: 0 0;
+    @include margin-reset;
     padding-bottom: 0.25rem;
   }
   &__thumbnail-container {
@@ -38,7 +38,7 @@
     font-size: 13px;
     color: #afafaf;
     font-weight: 600;
-    margin: 0 0;
+    @include margin-reset;
   }
   &__input {
     &::placeholder {
