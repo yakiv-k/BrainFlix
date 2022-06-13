@@ -19,9 +19,9 @@ class Homepage extends React.Component {
     axios
       .get(this.apiBASE)
       .then((response) => {
-        this.setState({
-          suggestedVideos: response.data,
-        });
+        // this.setState({
+        //   suggestedVideos: response.data,
+        // });
 
         let videoId;
 
@@ -31,13 +31,18 @@ class Homepage extends React.Component {
           videoId = response.data[0].id;
         }
 
-        return this.fetchVideoDataById(videoId);
-      })
-      .then((response) => {
+        this.fetchVideoDataById(videoId);
+
         this.setState({
           selectedVideo: response.data,
+          suggestedVideos: response.data,
         });
       })
+      // .then((response) => {
+      //   this.setState({
+      //     selectedVideo: response.data,
+      //   });
+      // })
       .catch((error) => {
         this.setState({
           serverError: true,
@@ -48,6 +53,11 @@ class Homepage extends React.Component {
   componentDidUpdate(prevProps) {
     const selectedVideoId = this.props.match.params.id;
     const prevVideo = prevProps.match.params.id;
+
+  // FUNCTION: counts the ammount of comments associated with a specific video
+  countComments = (arr) => {
+    return arr.filter((obj) => obj.comment).length;
+  };
 
     if (typeof selectedVideoId === "undefined") {
       const defaultVideo = this.state.suggestedVideos[0].id;
@@ -63,53 +73,45 @@ class Homepage extends React.Component {
           selectedVideo: response.data,
         });
       });
-      window.scrollTo({top: 0, behaviour: 'smooth'});
+      window.scrollTo({ top: 0, behaviour: "smooth" });
     }
   }
 
   // FUNCTION: Axios call
   fetchVideoDataById = (Id) => {
-    return axios.get(
-      `http://localhost:8080/videos/${Id}`
-    );
-  };
-
-  // FUNCTION: counts the ammount of comments associated with a specific video
-  countComments = (arr) => {
-    return arr.filter((obj) => obj.comment).length;
+    return axios.get(`http://localhost:8080/videos/${Id}`);
   };
 
   render() {
     if (!this.state.selectedVideo) {
-      return <p>Loading....</p>;
-    }
-    if (!this.state.suggestedVideos) {
-      return <p>Loading....</p>;
-    }
-    // VARIABLE: holds an array of all videos except for the currently selected video
+      if (!this.state.suggestedVideos) {
+        return <p>Loading....</p>;
+      }
+    } else {
+      // VARIABLE: holds an array of all videos except for the currently selected video
 
-    // NEEDS NEW PATH
-    const nonSelectedVideos = this.state.suggestedVideos.filter((video) => {
-
-      return video.id !== this.state.selectedVideo.id;
-    });
-    return (
-      <>
-        <Video selectedVideo={this.state.selectedVideo} />
-        <div className="state">
-          <div className="state__comments-division">
-            <VideoInfo selectedVideo={this.state.selectedVideo} />
-            <Comments
-              selectedVideo={this.state.selectedVideo}
-              countComments={this.countComments}
-            />
+      // NEEDS NEW PATH
+      const nonSelectedVideos = this.state.suggestedVideos.filter((video) => {
+        return video.id !== this.state.selectedVideo.id;
+      });
+      return (
+        <>
+          <Video selectedVideo={this.state.selectedVideo} />
+          <div className="state">
+            <div className="state__comments-division">
+              <VideoInfo selectedVideo={this.state.selectedVideo} />
+              <Comments
+                selectedVideo={this.state.selectedVideo}
+                countComments={this.countComments}
+              />
+            </div>
+            <div className="state__next-division">
+              <NextVideos nextVideos={nonSelectedVideos} />
+            </div>
           </div>
-          <div className="state__next-division">
-            <NextVideos nextVideos={nonSelectedVideos} />
-          </div>
-        </div>
-      </>
-    );
+        </>
+      );
+    }
   }
 }
 
