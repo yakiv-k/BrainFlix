@@ -13,17 +13,12 @@ class Homepage extends React.Component {
     serverError: false,
   };
 
-  apiKEY = "8e31db06-5abe-4902-af79-6940f302e934";
-  apiBASE = `https://project-2-api.herokuapp.com/videos?api_key=${this.apiKEY}`;
+  apiBASE = "http://localhost:8080/videos";
 
   componentDidMount() {
     axios
       .get(this.apiBASE)
       .then((response) => {
-        this.setState({
-          suggestedVideos: response.data,
-        });
-
         let videoId;
 
         if (this.props.match.params.id) {
@@ -32,11 +27,11 @@ class Homepage extends React.Component {
           videoId = response.data[0].id;
         }
 
-        return this.fetchVideoDataById(videoId);
-      })
-      .then((response) => {
+        this.fetchVideoDataById(videoId);
+
         this.setState({
-          selectedVideo: response.data,
+
+          suggestedVideos: response.data,
         });
       })
       .catch((error) => {
@@ -50,68 +45,60 @@ class Homepage extends React.Component {
     const selectedVideoId = this.props.match.params.id;
     const prevVideo = prevProps.match.params.id;
 
-    if (typeof selectedVideoId === 'undefined') {
+    if (typeof selectedVideoId === "undefined") {
       const defaultVideo = this.state.suggestedVideos[0].id;
-      
-      this.fetchVideoDataById(defaultVideo)
-      .then((response) => {
-        this.setState({
-          selectedVideo: response.data
-        })
-      });
-    } else if (selectedVideoId !== prevVideo) {
-      this.fetchVideoDataById(selectedVideoId)
-      .then((response) => {
+
+      this.fetchVideoDataById(defaultVideo).then((response) => {
         this.setState({
           selectedVideo: response.data,
-        })
+        });
       });
+    } else if (selectedVideoId !== prevVideo) {
+      this.fetchVideoDataById(selectedVideoId).then((response) => {
+        this.setState({
+          selectedVideo: response.data,
+        });
+      });
+      window.scrollTo({ top: 0, behaviour: "smooth" });
     }
   }
 
   // FUNCTION: Axios call
   fetchVideoDataById = (Id) => {
-    return axios.get(
-      `https://project-2-api.herokuapp.com/videos/${Id}?api_key=${this.apiKEY}`
-    );
+    return axios.get(`http://localhost:8080/videos/${Id}`);
   };
 
-  // FUNCTION: counts the ammount of comments associated with a specific video
-  countComments = (arr) => {
-    return arr.filter((obj) => obj.comment).length;
-  };
 
   render() {
     if (!this.state.selectedVideo) {
-      return <p>Loading....</p>;
-    }
-    if (!this.state.suggestedVideos) {
-      return <p>Loading....</p>;
-    }
-    // VARIABLE: holds an array of all videos except for the currently selected video
+      if (!this.state.suggestedVideos) {
+        return <p>Loading....</p>;
+      }
+    } else {
+      // VARIABLE: holds an array of all videos except for the currently selected video
 
-    // NEEDS NEW PATH
-    const nonSelectedVideos = this.state.suggestedVideos.filter((video) => {
-      console.log(video);
-      return video.id !== this.state.selectedVideo.id;
-    });
-    return (
-      <>
-        <Video selectedVideo={this.state.selectedVideo} />
-        <div className="state">
-          <div className="state__comments-division">
-            <VideoInfo selectedVideo={this.state.selectedVideo} />
-            <Comments
-              selectedVideo={this.state.selectedVideo}
-              countComments={this.countComments}
-            />
+      // NEEDS NEW PATH
+      const nonSelectedVideos = this.state.suggestedVideos.filter((video) => {
+        return video.id !== this.state.selectedVideo.id;
+      });
+      return (
+        <>
+          <Video selectedVideo={this.state.selectedVideo} />
+          <div className="state">
+            <div className="state__comments-division">
+              <VideoInfo selectedVideo={this.state.selectedVideo} />
+              <Comments
+                selectedVideo={this.state.selectedVideo}
+                // countComments={this.countComments}
+              />
+            </div>
+            <div className="state__next-division">
+              <NextVideos nextVideos={nonSelectedVideos} />
+            </div>
           </div>
-          <div className="state__next-division">
-            <NextVideos nextVideos={nonSelectedVideos} />
-          </div>
-        </div>
-      </>
-    );
+        </>
+      );
+    }
   }
 }
 
