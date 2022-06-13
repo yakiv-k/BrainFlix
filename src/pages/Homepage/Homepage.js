@@ -19,10 +19,6 @@ class Homepage extends React.Component {
     axios
       .get(this.apiBASE)
       .then((response) => {
-        // this.setState({
-        //   suggestedVideos: response.data,
-        // });
-
         let videoId;
 
         if (this.props.match.params.id) {
@@ -34,15 +30,10 @@ class Homepage extends React.Component {
         this.fetchVideoDataById(videoId);
 
         this.setState({
-          selectedVideo: response.data,
+
           suggestedVideos: response.data,
         });
       })
-      // .then((response) => {
-      //   this.setState({
-      //     selectedVideo: response.data,
-      //   });
-      // })
       .catch((error) => {
         this.setState({
           serverError: true,
@@ -53,11 +44,6 @@ class Homepage extends React.Component {
   componentDidUpdate(prevProps) {
     const selectedVideoId = this.props.match.params.id;
     const prevVideo = prevProps.match.params.id;
-
-  // FUNCTION: counts the ammount of comments associated with a specific video
-  countComments = (arr) => {
-    return arr.filter((obj) => obj.comment).length;
-  };
 
     if (typeof selectedVideoId === "undefined") {
       const defaultVideo = this.state.suggestedVideos[0].id;
@@ -82,6 +68,7 @@ class Homepage extends React.Component {
     return axios.get(`http://localhost:8080/videos/${Id}`);
   };
 
+
   render() {
     if (!this.state.selectedVideo) {
       if (!this.state.suggestedVideos) {
@@ -102,7 +89,7 @@ class Homepage extends React.Component {
               <VideoInfo selectedVideo={this.state.selectedVideo} />
               <Comments
                 selectedVideo={this.state.selectedVideo}
-                countComments={this.countComments}
+                // countComments={this.countComments}
               />
             </div>
             <div className="state__next-division">

@@ -1,12 +1,12 @@
 import "./Comments.scss";
 import avatar from "../../assets/Images/Mohan-muruge.jpg";
 // import { v4 as uuidv4 } from "uuid";
-function Comments({ selectedVideo, countComments }) {
+function Comments({ selectedVideo }) {
   return (
     <>
       <section className="submission">
         <h3 className="submission__counter">
-          {countComments(selectedVideo.comments)} comments
+          {selectedVideo.comments.length} comments
         </h3>
         <div className="submission__subdivision">
           <div className="submission__image-block">
