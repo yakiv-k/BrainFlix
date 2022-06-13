@@ -37,7 +37,7 @@ class Upload extends React.Component {
           <img
             className="upload__success-image"
             src={image2}
-            alt="current video thumbnail"
+            alt="upload success"
           ></img>
           <p className="upload__success-title">Success</p>
         </div>
