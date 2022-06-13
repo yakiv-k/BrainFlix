@@ -19,18 +19,21 @@ class Homepage extends React.Component {
     axios
       .get(this.apiBASE)
       .then((response) => {
-        let videoId;
 
+
+        let videoId;
+        // set videoId to the id within url if it exists
         if (this.props.match.params.id) {
           videoId = this.props.match.params.id;
         } else {
+          // display default
           videoId = response.data[0].id;
         }
 
         this.fetchVideoDataById(videoId);
 
+        // Update state
         this.setState({
-
           suggestedVideos: response.data,
         });
       })
@@ -45,6 +48,7 @@ class Homepage extends React.Component {
     const selectedVideoId = this.props.match.params.id;
     const prevVideo = prevProps.match.params.id;
 
+    //Condition: set default video at index [0] if the id is undefined
     if (typeof selectedVideoId === "undefined") {
       const defaultVideo = this.state.suggestedVideos[0].id;
 
@@ -53,12 +57,14 @@ class Homepage extends React.Component {
           selectedVideo: response.data,
         });
       });
+      // Change the main video if the data changes
     } else if (selectedVideoId !== prevVideo) {
       this.fetchVideoDataById(selectedVideoId).then((response) => {
         this.setState({
           selectedVideo: response.data,
         });
       });
+      // Scroll to main video upon selection
       window.scrollTo({ top: 0, behaviour: "smooth" });
     }
   }
@@ -70,14 +76,13 @@ class Homepage extends React.Component {
 
 
   render() {
+    // Display message before asynchronous request is fulfilled
     if (!this.state.selectedVideo) {
       if (!this.state.suggestedVideos) {
         return <p>Loading....</p>;
       }
     } else {
-      // VARIABLE: holds an array of all videos except for the currently selected video
-
-      // NEEDS NEW PATH
+      // VARIABLE: holds an array of all videos except for the currently selected videos
       const nonSelectedVideos = this.state.suggestedVideos.filter((video) => {
         return video.id !== this.state.selectedVideo.id;
       });
@@ -89,7 +94,6 @@ class Homepage extends React.Component {
               <VideoInfo selectedVideo={this.state.selectedVideo} />
               <Comments
                 selectedVideo={this.state.selectedVideo}
-                // countComments={this.countComments}
               />
             </div>
             <div className="state__next-division">
