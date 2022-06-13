@@ -3,7 +3,7 @@ import "./NextVideos.scss";
 // import { Link } from "react-router-dom"
 
 function NextVideos({ nextVideos }) {
-  console.log(nextVideos);
+  // console.log(nextVideos);
   return (
     <>
       <section className="next-videos">

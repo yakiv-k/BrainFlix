@@ -10,6 +10,7 @@
     }
     &__comments-division {
         @include desktop {
+            width: 75%;
             border-right: 1px solid #E1E1E1;
         }
     }

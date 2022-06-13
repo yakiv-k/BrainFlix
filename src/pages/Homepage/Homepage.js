@@ -13,8 +13,7 @@ class Homepage extends React.Component {
     serverError: false,
   };
 
-  apiKEY = "8e31db06-5abe-4902-af79-6940f302e934";
-  apiBASE = `https://project-2-api.herokuapp.com/videos?api_key=${this.apiKEY}`;
+  apiBASE = "http://localhost:8080/videos";
 
   componentDidMount() {
     axios
@@ -50,29 +49,28 @@ class Homepage extends React.Component {
     const selectedVideoId = this.props.match.params.id;
     const prevVideo = prevProps.match.params.id;
 
-    if (typeof selectedVideoId === 'undefined') {
+    if (typeof selectedVideoId === "undefined") {
       const defaultVideo = this.state.suggestedVideos[0].id;
-      
-      this.fetchVideoDataById(defaultVideo)
-      .then((response) => {
-        this.setState({
-          selectedVideo: response.data
-        })
-      });
-    } else if (selectedVideoId !== prevVideo) {
-      this.fetchVideoDataById(selectedVideoId)
-      .then((response) => {
+
+      this.fetchVideoDataById(defaultVideo).then((response) => {
         this.setState({
           selectedVideo: response.data,
-        })
+        });
       });
+    } else if (selectedVideoId !== prevVideo) {
+      this.fetchVideoDataById(selectedVideoId).then((response) => {
+        this.setState({
+          selectedVideo: response.data,
+        });
+      });
+      window.scrollTo({top: 0, behaviour: 'smooth'});
     }
   }
 
   // FUNCTION: Axios call
   fetchVideoDataById = (Id) => {
     return axios.get(
-      `https://project-2-api.herokuapp.com/videos/${Id}?api_key=${this.apiKEY}`
+      `http://localhost:8080/videos/${Id}`
     );
   };
 
@@ -92,7 +90,7 @@ class Homepage extends React.Component {
 
     // NEEDS NEW PATH
     const nonSelectedVideos = this.state.suggestedVideos.filter((video) => {
-      console.log(video);
+
       return video.id !== this.state.selectedVideo.id;
     });
     return (

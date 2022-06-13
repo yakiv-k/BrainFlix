@@ -1,6 +1,6 @@
 import "./Comments.scss";
 import avatar from "../../assets/Images/Mohan-muruge.jpg";
-
+// import { v4 as uuidv4 } from "uuid";
 function Comments({ selectedVideo, countComments }) {
   return (
     <>
@@ -25,20 +25,20 @@ function Comments({ selectedVideo, countComments }) {
         </div>
       </section>
       <div className="comments">
-        {selectedVideo.comments.map((video) => {
+        {selectedVideo.comments.map((comment, index) => {
           return (
-            <div className="comments__card">
+            <div className="comments__card" key={index}>
               <div className="comments__image-block">
                 <p className="comments__image" atl="default grey avatar"></p>
               </div>
               <div className="comments__text-block">
                 <div className="comments__info">
-                  <p className="comments__name">{video.name}</p>
+                  <p className="comments__name">{comment.name}</p>
                   <p className="comments__date">
-                    {new Date(video.timestamp).toLocaleDateString()}
+                    {new Date(comment.timestamp).toLocaleDateString()}
                   </p>
                 </div>
-                <p className="comments__content">{video.comment}</p>
+                <p className="comments__content">{comment.comment}</p>
               </div>
             </div>
           );

@@ -59,6 +59,7 @@
   }
   @include desktop {
     padding-right: 1rem;
+    flex-direction: row;
   }
   &__label {
     padding-bottom: 0.25rem;
@@ -103,6 +104,10 @@
       width: 12.375rem;
       margin-left: 1rem;
       margin-top: 1.125rem;
+    }
+    @include desktop {
+      margin-top: 1rem;
+      margin-bottom: 0.5rem;
     }
   }
   &__tablet-division {

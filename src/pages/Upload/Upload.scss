@@ -61,7 +61,7 @@
   }
 }
 
-.form {
+.submit {
   @include tablet {
     flex-direction: column;
     justify-content: space-between;
@@ -120,7 +120,17 @@
     }
   }
   &__button {
-    background-image: url("../../assets/Icons/publish.svg");
+    background-image: url("../../assets/Icons/upload.svg");
+    background-repeat: no-repeat;
+    background-position: 5% 50%;
+    border: none;
+    background-color: $button-primary;
+    color: $button-text;
+    font-family: "Avenir Next";
+    height: 2.5rem;
+    width: 100%;
+    border-radius: 0.25rem;
+    margin-top: 1rem;
     text-transform: uppercase;
     @include tablet {
       width: 11rem;
