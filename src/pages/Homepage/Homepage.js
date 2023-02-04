@@ -13,7 +13,7 @@ class Homepage extends React.Component {
     serverError: false,
   };
 
-  apiBASE = "http://localhost:8080/videos";
+  apiBASE = "https://brainflix.fly.dev/videos";
 
   componentDidMount() {
     axios
@@ -71,7 +71,7 @@ class Homepage extends React.Component {
 
   // FUNCTION: Axios call
   fetchVideoDataById = (Id) => {
-    return axios.get(`http://localhost:8080/videos/${Id}`);
+    return axios.get(`https://brainflix.fly.dev/videos/${Id}`);
   };
 
 

@@ -10,7 +10,7 @@ class Upload extends React.Component {
     isUploaded: false,
   };
 
-  apiBASE = "http://localhost:8080/videos";
+  apiBASE = "https://brainflix.fly.dev/videos";
 
   uploadHandle = (event) => {
     event.preventDefault();
